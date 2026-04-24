@@ -116,6 +116,7 @@ class SplayTree(BST):
         return node, steps
 
 class RedBlackTree(BST):
+<<<<<<< HEAD
     def _left_rotate(self, x):
         y = x.right
         x.right = y.left
@@ -203,3 +204,6 @@ class RedBlackTree(BST):
                         k.parent.parent.color = "RED"
                         self._left_rotate(k.parent.parent)
             self.root.color = "BLACK"
+=======
+    pass
+>>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
