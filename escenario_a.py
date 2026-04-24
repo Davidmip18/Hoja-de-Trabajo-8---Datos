@@ -1,11 +1,7 @@
 import random
 import matplotlib.pyplot as plt
 from graphviz import Digraph
-<<<<<<< HEAD
 from trees import BST, SplayTree, RedBlackTree, Process
-=======
-from trees import BST, SplayTree, Process
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 
 def generate_graphviz(tree, filename="bst_1000_procesos"):
     dot = Digraph(strict=True)
@@ -27,10 +23,7 @@ def generate_graphviz(tree, filename="bst_1000_procesos"):
 
 bst = BST()
 splay_tree = SplayTree()
-<<<<<<< HEAD
 rb_tree = RedBlackTree()
-=======
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 procesos_generados = []
 
 for i in range(1, 1001):
@@ -39,10 +32,7 @@ for i in range(1, 1001):
     procesos_generados.append(p)
     bst.insert(p)
     splay_tree.insert(p)
-<<<<<<< HEAD
     rb_tree.insert(p)
-=======
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 
 generate_graphviz(bst)
 
@@ -50,55 +40,34 @@ procesos_a_buscar = random.sample(procesos_generados, 100)
 
 iteraciones_bst = []
 iteraciones_splay = []
-<<<<<<< HEAD
 iteraciones_rb = []
-=======
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 nombres_procesos = []
 
 for idx, p in enumerate(procesos_a_buscar):
     _, pasos_bst = bst.search(p.vruntime)
     _, pasos_splay = splay_tree.search(p.vruntime)
-<<<<<<< HEAD
     _, pasos_rb = rb_tree.search(p.vruntime)
     
     iteraciones_bst.append(pasos_bst)
     iteraciones_splay.append(pasos_splay)
     iteraciones_rb.append(pasos_rb)
-=======
-    
-    iteraciones_bst.append(pasos_bst)
-    iteraciones_splay.append(pasos_splay)
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
     nombres_procesos.append(str(idx + 1))
 
 promedio_bst = sum(iteraciones_bst) / len(iteraciones_bst)
 promedio_splay = sum(iteraciones_splay) / len(iteraciones_splay)
-<<<<<<< HEAD
 promedio_rb = sum(iteraciones_rb) / len(iteraciones_rb)
 
 print(f"Promedio de iteraciones con el BST: {promedio_bst:.2f}")
 print(f"Promedio de iteraciones con el Splay Tree: {promedio_splay:.2f}")
 print(f"Promedio de iteraciones con el Red-Black Tree: {promedio_rb:.2f}")
-=======
-
-print(f"Promedio de iteraciones con el BST: {promedio_bst:.2f}")
-print(f"Promedio de iteraciones con el Splay Tree: {promedio_splay:.2f}")
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 
 plt.figure(figsize=(14, 6))
 plt.plot(nombres_procesos, iteraciones_bst, marker='o', linestyle='-', color='blue', label='BST')
 plt.plot(nombres_procesos, iteraciones_splay, marker='s', linestyle='-', color='green', label='Splay Tree')
-<<<<<<< HEAD
 plt.plot(nombres_procesos, iteraciones_rb, marker='^', linestyle='-', color='red', label='Red-Black Tree')
 
 plt.title('Escenario A: Búsqueda de 100 procesos aleatorios')
 plt.xlabel('Proceso Buscado (Índice 1-100)')
-=======
-
-plt.title('Escenario A: Búsqueda de 100 procesos aleatorios')
-plt.xlabel('Proceso Búscado (Índice 1-100)')
->>>>>>> 48569a9ad15bc27257f15b74c6038332f9cf90c1
 plt.ylabel('Cantidad de Iteraciones')
 plt.xticks(rotation=90, fontsize=8)
 plt.legend()
